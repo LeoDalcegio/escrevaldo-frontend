@@ -1,0 +1,85 @@
+@import "../../utils/styles/variables"
+
+.page-search-container
+  width: 100vw
+  height: 100vh
+  display: grid
+  align-items: center
+  justify-items: center
+  background-color: $primary-color
+
+.form-container
+  background: $secondary-color
+  padding: 100px 140px
+  border: 2px solid $border-color
+  box-shadow: 15px 15px 1px $secondary-color, 15px 15px 1px 2px $border-color
+  margin: 0 35px 0 20px
+
+  input
+    display: block
+    width: 100%
+    font-size: $font-size * 2
+    line-height: 28px
+    margin-top: 50px
+    margin-bottom: 10px
+    border: none
+    border-bottom: 5px solid $border-color
+    background: $secondary-color
+    min-width: 250px
+    padding-left: 5px
+    outline: none
+    color: $border-color
+
+    &:focus
+      border-bottom: 5px solid $button-shadow-color
+
+  p
+    margin-bottom: 40px
+    font-weight: 400
+    font-size: $font-size * 1.2
+    font-family: $font-serif
+
+  button
+    display: block
+    margin: 0 auto
+    margin-top: 50px
+    line-height: 28px
+    color: white
+    padding: 20px 200px
+    font-size: $font-size * 2
+    background: $button-color
+    cursor: pointer
+    letter-spacing: 2px
+    transition: 0.2s all ease-in-out
+    outline: none
+    border: 1px solid $border-color
+    box-shadow: 5px 5px 1px $button-shadow-color, 5px 5px 1px 1px $border-color
+
+    &:hover
+      opacity: 0.8
+      background: $button-shadow-color
+      border: 1px solid $button-shadow-color
+      box-shadow: none
+
+@media screen and(max-width: 1024px) , screen and (max-height: 700px)
+  .form-container
+    padding: 50px 70px
+
+@media screen and(max-width: 760px) , screen and (max-height: 300px)
+  .form-container
+    padding: 12.5px 17.5px
+
+    h1
+      margin-top: 25px
+
+    button
+      padding: 10px 100px
+      font-size: $font-size * 1.5
+      margin-top: 25px
+      margin-bottom: 25px
+
+    input
+      font-size: $font-size * 1.5
+
+    strong
+      font-size: $font-size
