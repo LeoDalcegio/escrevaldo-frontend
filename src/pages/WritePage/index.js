@@ -17,7 +17,11 @@ export default function WritePage() {
   const roomName = params[0];
 
   useEffect(() => {
-    setupWebsocket();
+    disconnect();
+
+    connect(roomName);
+
+    subscribeToNewText((newText) => setText(newText));
 
     return () => {
       disconnect();
@@ -39,14 +43,6 @@ export default function WritePage() {
 
     sendMessage(text);
   };
-
-  function setupWebsocket() {
-    disconnect();
-
-    connect(roomName);
-
-    subscribeToNewText((newText) => setText(newText));
-  }
 
   return (
     <div className="page-write-container">
