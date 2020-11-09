@@ -20,7 +20,7 @@ export default function SearchPage() {
       <div className="form-container">
         <h1>Escrevaldo (logo)</h1>
         <p>Escreva qualquer coisa</p>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} netlify>
           <input
             type="text"
             className="room-input"
