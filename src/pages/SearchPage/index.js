@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import ReactGA from "react-ga";
 
@@ -17,6 +17,10 @@ export default function SearchPage() {
 
     history.push(room);
   }
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   return (
     <div className="page-search-container">
