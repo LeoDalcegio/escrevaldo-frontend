@@ -7,6 +7,7 @@ import {
   subscribeToNewText,
   sendMessage,
 } from "../../services/socket";
+import ReactGA from "react-ga";
 
 import "./styles.sass";
 
@@ -43,6 +44,19 @@ export default function WritePage() {
 
     sendMessage(text);
   };
+
+  const callback = (list) => {
+    list.getEntries().forEach((entry) => {
+      ReactGA.timing({
+        category: "Load Performace",
+        variable: "Write Page Load Time",
+        value: entry.responseEnd - entry.requestStart,
+      });
+    });
+  };
+
+  var observer = new PerformanceObserver(callback);
+  observer.observe({ entryTypes: ["navigation"] });
 
   return (
     <div className="page-write-container">
