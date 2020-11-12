@@ -5,7 +5,7 @@ import { createBrowserHistory } from "history";
 
 const history = createBrowserHistory();
 
-ReactGA.initialize("G-F7Z7PZ0X6L");
+ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_CODE);
 
 history.listen((location) => {
   ReactGA.set({ page: location.pathname }); // Update the user's current page
