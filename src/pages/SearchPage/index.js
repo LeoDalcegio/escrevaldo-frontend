@@ -7,10 +7,6 @@ export default function SearchPage() {
   const [room, setRoom] = useState("");
   const history = useHistory();
 
-  // TODO:
-  //
-  // Validação da room
-  //
   function handleSubmit() {
     history.push(room);
   }
@@ -18,8 +14,9 @@ export default function SearchPage() {
   return (
     <div className="page-search-container">
       <div className="form-container">
-        <h1>Escrevaldo (logo)</h1>
+        <h1>Escrevaldo</h1>
         <p>Escreva qualquer coisa</p>
+
         <form onSubmit={handleSubmit} netlify>
           <input
             type="text"
@@ -29,7 +26,7 @@ export default function SearchPage() {
             required
             placeholder="Nome da sala"
           />
-          <p>Você pode criar salas como "nome/outro-nome/teste"</p>
+          <p className="tip">Você pode criar salas como "nome1/nome2/nome3"</p>
 
           <button type="submit">Entrar</button>
         </form>

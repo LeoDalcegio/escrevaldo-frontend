@@ -14,30 +14,30 @@ export default function WritePage() {
   const [text, setText] = useState("");
   const params = useParams();
 
-  const roomName = params[0];
+  const url = params[0];
 
   useEffect(() => {
     disconnect();
 
-    connect(roomName);
+    connect(url);
 
     subscribeToNewText((newText) => setText(newText));
 
     return () => {
       disconnect();
     };
-  }, [roomName]);
+  }, [url]);
 
   useEffect(() => {
-    api.post(roomName).then((response) => {
+    api.post(url).then((response) => {
       if (response) setText(response.data.content);
     });
-  }, [roomName]);
+  }, [url]);
 
   const updateText = (text) => {
     setText(text);
 
-    api.put(roomName, {
+    api.put(url, {
       content: text,
     });
 
