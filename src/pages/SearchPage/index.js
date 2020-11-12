@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { PageView, initGA, Event } from "../../components/Tracking";
 import ReactGA from "react-ga";
 
 import "./styles.sass";
@@ -9,13 +8,12 @@ export default function SearchPage() {
   const [room, setRoom] = useState("");
   const history = useHistory();
 
-  useState(() => {
-    initGA("G-F7Z7PZ0X6L");
-    PageView();
-  }, []);
-
   function handleSubmit() {
-    Event("ROOM", "Room searched", "SEARCH_PAGE");
+    ReactGA.event({
+      category: "ROOM",
+      action: "Room searched",
+      label: "SEARCH_PAGE",
+    });
 
     history.push(room);
   }
